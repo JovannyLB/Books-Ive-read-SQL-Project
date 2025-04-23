@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
-	const rawBooknotes = await db.query("select * from BookNotes");
+	const rawBooknotes = await db.query("SELECT * FROM booknotes ORDER BY date_added DESC");
 	const booknotes = rawBooknotes.rows;
 
 	res.render("index.ejs", { booknotes: booknotes });

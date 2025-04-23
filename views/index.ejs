@@ -11,7 +11,27 @@
 		<link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<h1>War's book notes!</h1>
+		<div class="page-container">
+			<img class="logo" src="./images/logo.png" alt="War's vault logo" />
+			<h2>Check out the books War has read and what he thinks about them!</h2>
+			<hr />
+
+			<% if (locals.booknotes) { %>
+			<% booknotes.forEach((book, index, arr) => { %>
+                <div class="book-display">
+                    <img class="book-cover" src="<%= book.cover %>" alt="<%= book.name %>'s cover">
+                    <h2><%= book.name %></h2>
+                    <h3><%= book.rating %> out of 10</h3>
+                    <p><%= book.note %></p>
+                </div>
+                <% if (index !== arr.length - 1) { %>
+                    <hr />
+                <% } %>
+            <% }); %>
+			<% } else { %>
+			    <h2>No books found :/</h2>
+			<% } %>
+		</div>
 		<script src="./scripts/script.js"></script>
 	</body>
 </html>

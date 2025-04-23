@@ -1,20 +1,51 @@
 .nova-round-regular {
-  font-family: "Nova Round", system-ui;
-  font-weight: 400;
-  font-style: normal;
+	font-family: "Nova Round", system-ui;
+	font-weight: 400;
+	font-style: normal;
 }
 
 /* Global setters */
 * {
-  color: #efeff0;
+	color: #efeff0;
 
-  margin: 0;
-  padding: 0;
-  font-family: "Nova Round";
+	margin: 0;
+	padding: 0;
+	font-family: "Nova Round";
 
-  scrollbar-color: #efeff0 transparent;
+	scrollbar-color: #efeff0 transparent;
 }
 
 body {
-  background-color: #202225;
+	background-color: #202225;
+}
+
+hr {
+	border-top: 2.5px solid;
+
+	margin: 20px 0px;
+}
+
+.page-container {
+	padding: 20px 20%;
+}
+
+.page-container > h2 {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.logo {
+	width: 100%;
+}
+
+/* Book notes display */
+.book-display {
+	min-height: 300px;
+}
+
+.book-cover {
+	float: left;
+	max-height: 300px;
+
+	margin-right: 10px;
 }

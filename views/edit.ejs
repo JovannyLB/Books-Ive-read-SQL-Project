@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit book list</title>
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="stylesheet" href="./styles/edit.css" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+        <a class="page-button" href="/"><img src="./images/back-svg.svg" alt="Back sign"></a>
+		<div class="page-container">
+			<img class="logo" src="./images/logo.png" alt="War's vault logo" />
+            <h2>Add, edit or remove book notes</h2>
+            <hr />
+			<form class="book-listing" action="/add-book-note" method="post">
+                <textarea name="bookName" id="bookName" placeholder="The book's name" maxlength="40" required></textarea>
+                <textarea name="bookCover" id="bookCover" placeholder="Link to the book's cover" required></textarea>
+                <div>
+                    <select name="bookRating" id="bookRating">
+                        <% for (let i = 1; i <= 10; i++) { %>
+                            <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <textarea class="book-note" name="bookNote" id="bookNote" placeholder="Your thoughts about the book" required></textarea>
+                <div class="submit-buttons">
+                    <button type="submit"><img src="./images/plus-svg.svg" alt="Plus sign" /></button>
+                </div>
+            </form>
+			<hr />
+            <% if (locals.booknotes) { %>
+                <% booknotes.forEach((book, index, arr) => { %>
+				    <form class="book-listing" method="post">
+                        <input type="hidden" name="noteId" value="<%= book.id %>">
+                        <textarea name="bookName" id="bookName" placeholder="The book's name" maxlength="40" required><%= book.name %></textarea>
+                        <div class="book-cover-container">
+                            <img class="book-cover" src="<%= book.cover %>" alt="<%= book.name %>'s cover" />
+                            <textarea name="bookCover" id="bookCover" placeholder="Link to the book's cover" required><%= book.cover %></textarea>
+                        </div>
+                        <div>
+                            <select name="bookRating" id="bookRating">
+                                <% for (let i = 1; i <= 10; i++) { %>
+                                    <% if (book.rating == i) { %>
+                                        <option value="<%= i %>" selected><%= i %></option>
+                                    <% } else { %>
+                                        <option value="<%= i %>"><%= i %></option>
+                                    <% } %>
+                                <% } %>
+                            </select>
+                        </div>
+				    	<textarea class="book-note" name="bookNote" id="bookNote" placeholder="Your thoughts about the book" required><%= book.note %></textarea>
+                        <div class="submit-buttons">
+                            <button type="submit" formaction="/edit-book-note"><img src="./images/edit-svg.svg" alt="Edit sign" /></button>
+                            <button type="submit" formaction="/delete-book-note"><img src="./images/delete-svg.svg" alt="Delete sign" /></button>
+                        </div>
+				    </form>
+				    <% if (index !== arr.length - 1) { %>
+				    	<hr />
+				    <% } %>
+			    <% }); %>
+			<% }; %>
+		</div>
+		<script src="./scripts/edit.js"></script>
+	</body>
+</html>

@@ -5,33 +5,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Books War's read</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="stylesheet" href="./styles/home.css" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+        <a class="page-button" href="/edit"><img src="./images/edit-svg.svg" alt="Edit sign"></a>
 		<div class="page-container">
 			<img class="logo" src="./images/logo.png" alt="War's vault logo" />
 			<h2>Check out the books War has read and what he thinks about them!</h2>
 			<hr />
 
-			<% if (locals.booknotes) { %>
-			<% booknotes.forEach((book, index, arr) => { %>
-                <div class="book-display">
-                    <img class="book-cover" src="<%= book.cover %>" alt="<%= book.name %>'s cover">
-                    <h2><%= book.name %></h2>
-                    <h3><%= book.rating %> out of 10</h3>
-                    <p><%= book.note %></p>
-                </div>
-                <% if (index !== arr.length - 1) { %>
-                    <hr />
-                <% } %>
-            <% }); %>
+			<% if (locals.booknotes) { %> <% booknotes.forEach((book, index, arr) => { %>
+				<div class="book-display">
+					<img class="book-cover" src="<%= book.cover %>" alt="<%= book.name %>'s cover" />
+					<h2><%= book.name %></h2>
+					<h3><%= book.rating %> out of 10</h3>
+					<pre><%= book.note %></pre>
+				</div>
+				<% if (index !== arr.length - 1) { %>
+					<hr />
+				<% } %>
+			<% }); %>
 			<% } else { %>
-			    <h2>No books found :/</h2>
-			<% } %>
+				<h2>No book notes found :/</h2>
+			<% }; %>
 		</div>
-		<script src="./scripts/script.js"></script>
 	</body>
 </html>

@@ -16,13 +16,53 @@
 }
 
 body {
-	background-color: #202225;
+	background-color: #0e051c;
 }
 
 hr {
-	border-top: 2.5px solid;
+	border-top: 2.5px solid #efeff0;
 
 	margin: 20px 0px;
+}
+
+pre {
+	text-wrap: auto;
+	text-align: justify;
+}
+
+button,
+.page-button {
+	background-color: #39125d;
+}
+
+button:hover,
+.page-button:hover {
+	background-color: #9700df;
+}
+
+.page-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 75px;
+	height: 75px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin: 20px;
+
+	border-radius: 50%;
+}
+
+.page-button > img {
+	height: 50px;
+}
+
+.logo {
+	width: 100%;
 }
 
 .page-container {
@@ -32,20 +72,4 @@ hr {
 .page-container > h2 {
 	margin-top: 10px;
 	text-align: center;
-}
-
-.logo {
-	width: 100%;
-}
-
-/* Book notes display */
-.book-display {
-	min-height: 300px;
-}
-
-.book-cover {
-	float: left;
-	max-height: 300px;
-
-	margin-right: 10px;
 }

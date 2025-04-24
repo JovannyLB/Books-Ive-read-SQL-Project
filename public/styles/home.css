@@ -1,0 +1,11 @@
+/* Book notes display */
+.book-display {
+	min-height: 300px;
+}
+
+.book-cover {
+	float: left;
+	max-height: 300px;
+
+	margin-right: 10px;
+}

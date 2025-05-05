@@ -14,5 +14,5 @@ The website requires a PostgreSQL database formatted in a specific way, I've add
 ## Showcase
 ### Home Page
 ![enter image description here](https://i.postimg.cc/FH7GT4pf/image.png)
-### Edit page
+### Edit Page
 ![enter image description here](https://i.postimg.cc/4xqPMS2W/image.png)
